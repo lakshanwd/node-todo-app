@@ -1,29 +1,31 @@
 const bodyParser = require('body-parser');
+const db = require('../db/database');
 const json = bodyParser.json();
-const tasks = [{task:'Get Milk'},{task:'Drink Milk'},{task:'Play Games'}];
 
 module.exports = function(app){
 
   //handle get requests
   app.get('/task', function(req, res){
-    res.json(tasks);
+    db.ToDo.find({}, function(err, data){
+      if(err) throw err;
+      res.json(data);
+    });
   });
 
   //handle post requests
   app.post('/task', json, function(req, res){
-    tasks.push(task);
-    res.json({result : true});
-  });
-
-  //handle put requests
-  app.put('/task', json, function(req, res){
-    //todo: update task
-    res.json({result : false});
+    var tobeSaved = req.body;
+    db.ToDo(tobeSaved).save().then(function(doc){
+      res.json({ status : tobeSaved.task == doc.task });
+    });
   });
 
   //handle delete requests
   app.delete('/task', json, function(req, res){
-    //todo: delete task
-    res.json({result : false});
+    var tobeDeleted = req.body;
+    db.ToDo.remove(tobeDeleted, function(err, data){
+      if(err) throw err;
+      res.json(data);
+    });
   });
 }
