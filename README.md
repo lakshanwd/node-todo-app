@@ -8,5 +8,5 @@ Sample todo app written in node.js
 * jQuery.js
 
 ### start server
-`npm install`
-`node app`
+* to install dependancies run `npm install` in terminal window
+* to run server run `node app` in terminal window
