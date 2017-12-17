@@ -1,8 +1,8 @@
-module.exports = function(app){
+module.exports = function(app) {
 
-  //handle get requests
-  app.get('/todo', function(req, res){
-    res.render('todo');
-  });
+    //handle get requests
+    app.get('/todo', function(req, res) {
+        res.render('todo');
+    });
 
 }
