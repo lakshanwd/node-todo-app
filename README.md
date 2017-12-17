@@ -1,2 +1,2 @@
-# todo-app
-Sample todo app written on Node.js
+# node-todo-app
+Sample Node todo app
