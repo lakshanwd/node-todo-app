@@ -1,5 +1,5 @@
 const express = require('express');
-const todoController = require('./controllers/todo-controller');
+const homeController = require('./controllers/home-controller');
 const taskController = require('./controllers/task-controller');
 
 var app = express();
@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('./assets'));
 
 //fire controllers
-todoController(app);
+homeController(app);
 taskController(app);
 
 //listen

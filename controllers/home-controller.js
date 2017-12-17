@@ -1,7 +1,7 @@
 module.exports = function(app) {
 
     //handle get requests
-    app.get('/todo', function(req, res) {
+    app.get('/', function(req, res) {
         res.render('todo');
     });
 
